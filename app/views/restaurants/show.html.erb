@@ -1,0 +1,22 @@
+<h1>Restuarant details:</h1>
+
+<div class="card p-3 mb-3">
+  <p>Name: <%= @restaurant.name %></p>
+  <p>Food Category: <%= @restaurant.category.capitalize %></p>
+  <p>Address: <%= @restaurant.address %></p>
+</div>
+
+<h4>Reviews:</h4>
+<ul class="list-unstyled">
+  <% @restaurant.reviews.each do |review| %>
+    <li><div class="card p-3">
+      <p>Rating: <%= review.rating %></p>
+      <p>Comment: <%= review.content %></p>
+    </div></li>
+  <% end %>
+</ul>
+
+<div class="d-flex inline">
+  <p class="me-2"><%= link_to "Add review", new_restaurant_review_path(@restaurant), class: "btn btn-primary" %></p>
+  <p><%= link_to "Back to all restaurants", restaurants_path, class: "btn btn-primary" %></p>
+</div>
